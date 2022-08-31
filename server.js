@@ -20,12 +20,11 @@ const port = args.port || process.env.PORT || 3000
 
 // If there is an error, put it on the console error and return. 
 // Do not be nice about exiting.
-const text = fs.readFile('public/index.html', 'utf8', (err, data) => {
+const text = fs.readFile('./public/index.html', 'utf8', (err, data) => {
     if (err) {
         console.log(err);
         return;
     }
-    console.log(data);
 })
 
 // Define a const `server` as an arrow function using http.createServer. 
@@ -38,13 +37,13 @@ const server = http.createServer((req, res) => {
     res.statusCode = 200
     res.setHeader('Content-Type', 'text/html')
     res.end(text)
-    console.log('Reading text')
 })
 
 // Start the `server` const listening on the port defined by argument in your `port` const. 
 // Put the exact message `Server listening on port ${port}` on the console log. 
 server.listen(port, () => {
-    console.log('Server listening at port ${port}')
+    console.log(`Server listening on port ${port}`)
+    console.log(port)
 })
 
 // That's it! You're all done!
