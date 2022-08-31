@@ -25,6 +25,7 @@ const text = fs.readFile('./public/index.html', 'utf8', (err, data) => {
         console.log(err);
         return;
     }
+    console.log(data)
 })
 
 // Define a const `server` as an arrow function using http.createServer. 
